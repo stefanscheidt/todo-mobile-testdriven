@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+    <link rel="stylesheet" href="lib/jquery.mobile.css">
+
+    <!-- make page testable for jasmine ui -->
+    <script type="text/javascript">eval(sessionStorage.jasmineui);</script>
+
+    <!-- Libraries -->
+    <script src="lib/jquery.js"></script>
+    <script src="lib/jquery.mobile.js"></script>
+
+    <!-- Application -->
+    <script src="app/todo.js"></script>
+
+    <title>RYLC</title>
+</head>
+<body>
+
+<div id="todoPage" data-role="page">
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <form id="todoPage_form" data-ajax="false">
+                <input type="text" id="todoPage_input" placeholder="enter your todo here">
+            </form>
+        </div>
+        <fieldset data-role="controlgroup" id="todoPage_list">
+        </fieldset>
+    </div>
+</div>
+
+</body>
+</html>
