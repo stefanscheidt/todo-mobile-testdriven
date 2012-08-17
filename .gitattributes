@@ -1,0 +1,5 @@
+# see https://help.github.com/articles/dealing-with-line-endings
+# see http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/
+
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
