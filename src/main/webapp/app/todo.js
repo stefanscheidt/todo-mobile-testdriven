@@ -1,14 +1,14 @@
-$(function() {
-    $('#todoPage_form').submit(function(event) {
-        addTodo();
-        event.preventDefault();
-    });
-    $.ajax().then(function (entries) {
-        addEntries(entries)
-    });
-});
+(function (window, $) {
 
-(function () {
+    $(function() {
+        $('#todoPage_form').submit(function(event) {
+            addTodo();
+            event.preventDefault();
+        });
+        $.ajax().then(function (entries) {
+            addEntries(entries)
+        });
+    });
 
     function addEntries(entries) {
         for(var i = 0, l = entries.length; i < l; i++) {
@@ -47,6 +47,6 @@ $(function() {
     window.addEntries = addEntries;
     window.addTodo = addTodo;
 
-})();
+})(window, window.jQuery);
 
 
