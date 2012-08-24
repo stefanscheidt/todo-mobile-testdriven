@@ -1,0 +1,33 @@
+
+1. create src/test/webapp/ui/todoUiSpec.js
+
+2. implement 'shows todo page when visiting the app' and let it fail.
+
+3. Add todoPage to index.html.
+
+4. Add spec and let it fail.
+
+    it('add new entry to list', function () {
+        var someEntryText = "Entry";
+        $('#todoPage_input').val(someEntryText).submit();
+        var entries = $('#todoPage_list .entry');
+        expect(entries.length).toBe(1);
+        expect(entries.text()).toBe(someEntryText);
+    });
+
+5. Add content to todoPage
+
+    <div data-role="content">
+        <form id="todoPage_form" data-ajax="false">
+            <input type="text" id="textPage_input">
+        </form>
+        <fieldset id="todoPage_list" data-role="controlgroup">
+        </fieldset>
+    </div>
+
+6. Include app/todo.js and let tests pass.
+
+7. Refactor app- and test code.
+
+
+

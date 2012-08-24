@@ -14,8 +14,17 @@
     });
 
     function addEntry() {
+        append(input.val());
+        updateUi();
+        input.val('');
+    }
+
+    function append(entry) {
         var index = list.find('.entry').length;
-        list.append(entryHtml(input.val(), index));
+        list.append(entryHtml(entry, index));
+    }
+
+    function updateUi() {
         list.parent().trigger('create');
     }
 
