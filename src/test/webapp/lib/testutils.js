@@ -8,4 +8,13 @@ jasmineui.inject(function () {
         return oldTimeout.call(this, fn, delay);
     };
 
+    beforeEach(function () {
+        this.addMatchers({
+            toBeActivePage:function () {
+                var activePage = $.mobile.activePage;
+                return activePage.is(':visible') && activePage.attr('id') === (this.actual);
+            }
+        });
+    });
+
 });
