@@ -17,7 +17,6 @@
         var index = list.find('.entry').length;
         list.append(entryHtml(input.val(), index));
         list.parent().trigger('create');
-        input.val('');
     }
 
     function entryHtml(entry, index) {

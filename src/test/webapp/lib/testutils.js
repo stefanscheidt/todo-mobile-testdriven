@@ -1,13 +1,6 @@
 jasmineui.inject(function () {
 
-    var oldTimeout = window.setTimeout;
-    window.setTimeout = function (fn, delay) {
-        if (delay > 20) {
-            delay = 20;
-        }
-        return oldTimeout.call(this, fn, delay);
-    };
-
+    // add custom matcher toBeActivePage
     beforeEach(function () {
         this.addMatchers({
             toBeActivePage:function () {
@@ -16,5 +9,14 @@ jasmineui.inject(function () {
             }
         });
     });
+
+    // speedup jQuery Mobile page load for UI tests
+    var oldTimeout = window.setTimeout;
+    window.setTimeout = function (fn, delay) {
+        if (delay > 20) {
+            delay = 20;
+        }
+        return oldTimeout.call(this, fn, delay);
+    };
 
 });
