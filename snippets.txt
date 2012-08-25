@@ -1,0 +1,78 @@
+
+# Part I: Show todo page and add new entries #
+
+1. create src/test/webapp/ui/todoUiSpec.js
+
+2. implement 'shows todo page when visiting the app' and let it fail.
+
+3. Add todoPage to index.html and let test pass.
+
+4. Add spec and let it fail.
+
+    it('add new entry to list', function () {
+        var someEntryText = "Entry";
+        $('#todoPage_input').val(someEntryText).submit();
+        var entries = $('#todoPage_list .entry');
+        expect(entries.length).toBe(1);
+        expect(entries.text()).toBe(someEntryText);
+    });
+
+5. Add content to todoPage.
+
+    <div data-role="content">
+        <form id="todoPage_form" data-ajax="false">
+            <input type="text" id="textPage_input">
+        </form>
+        <fieldset id="todoPage_list" data-role="controlgroup">
+        </fieldset>
+    </div>
+
+6. Include app/todo.js and let tests pass.
+
+7. Refactor app- and test code.
+
+# Part II: Load Backend data on load #
+
+8. Add spec 'load data from backend on load'.
+   Add beforeLoad and spy on $.ajax.
+   Let test fail.
+
+9. Add deferred and spec and let test fail.
+
+    it('updates list with loaded data', function () {
+        deferred.resolve([
+            {text:someEntryText}
+        ]);
+        expect(entries().length).toBe(1);
+        expect(textOf(entries())).toBe(someEntryText);
+    });
+
+10. Handle ajax return with addEntries and let test pass.
+
+    function addEntries(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            appendToList(entries[i].text);
+        }
+        updateUi();
+    }
+
+# Part III: Add settings page and and navigation #
+
+11. Add spec 'shows settings page after click on settings' and let it fail.
+
+12. Add Header to todoPage.
+
+    <div data-role="header">
+        <h1>Todos</h1>
+        <a href="#settingsPage" id="todoPage_settings" data-role="button" class="ui-btn-right">Settings</a>
+    </div>
+
+13. Add settingsPage and let tests fail.
+
+    <div id="settingsPage" data-role="page">
+        <div data-role="header">
+            <h1>Settings</h1>
+        </div>
+    </div>
+
+14. Fix test and let it pass.
