@@ -11,15 +11,25 @@
             event.preventDefault();
         });
 
+        $.ajax('/todo-mobile/store').then(function(entries) {
+            addEntries(entries);
+        });
     });
 
     function addEntry() {
-        append(input.val());
+        appendToList(input.val());
         updateUi();
         input.val('');
     }
 
-    function append(entry) {
+    function addEntries(entries) {
+        for (var i = 0; i < entries.length; i++) {
+            appendToList(entries[i].text);
+        }
+        updateUi();
+    }
+
+    function appendToList(entry) {
         var index = list.find('.entry').length;
         list.append(entryHtml(entry, index));
     }

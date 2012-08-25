@@ -21,12 +21,22 @@
 <body>
 
 <div id="todoPage" data-role="page">
+    <div data-role="header">
+        <h1>Todos</h1>
+        <a href="#settingsPage" id="todoPage_settings" data-role="button" class="ui-btn-right">Settings</a>
+    </div>
     <div data-role="content">
         <form id="todoPage_form" data-ajax="false">
             <input type="text" id="todoPage_input">
         </form>
         <fieldset id="todoPage_list" data-role="controlgroup">
         </fieldset>
+    </div>
+</div>
+
+<div id="settingsPage" data-role="page">
+    <div data-role="header">
+        <h1>Settings</h1>
     </div>
 </div>
 
