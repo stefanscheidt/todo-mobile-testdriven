@@ -27,17 +27,23 @@
         </fieldset>
     </div>
 
-6. Include app/todo.js and let tests pass.
+6. Add static entry HTML to fieldset and let test fail.
 
-7. Refactor app- and test code.
+7. Debug "trailing spaces bug", fix spec and let test pass.
+
+8. Refactor test and make them fail due to static content.
+
+9. Include app/todo.js and let test pass.
+
+10. Refactor todo.js and let test pass.
 
 # Part II: Load Backend data on load #
 
-8. Add spec 'load data from backend on load'.
+11. Add spec 'load data from backend on load'.
    Add beforeLoad and spy on $.ajax.
    Let test fail.
 
-9. Add deferred and spec and let test fail.
+12. Add deferred and spec and let test fail.
 
     it('updates list with loaded data', function () {
         deferred.resolve([
@@ -47,7 +53,7 @@
         expect(textOf(entries())).toBe(someEntryText);
     });
 
-10. Handle ajax return with addEntries and let test pass.
+13. Handle ajax return with addEntries and let test pass.
 
     function addEntries(entries) {
         for (var i = 0; i < entries.length; i++) {
@@ -58,16 +64,16 @@
 
 # Part III: Add settings page and and navigation #
 
-11. Add spec 'shows settings page after click on settings' and let it fail.
+14. Add spec 'shows settings page after click on settings' and let it fail.
 
-12. Add Header to todoPage.
+15. Add Header to todoPage.
 
     <div data-role="header">
         <h1>Todos</h1>
         <a href="#settingsPage" id="todoPage_settings" data-role="button" class="ui-btn-right">Settings</a>
     </div>
 
-13. Add settingsPage and let tests fail.
+16. Add settingsPage and let tests fail.
 
     <div id="settingsPage" data-role="page">
         <div data-role="header">
@@ -75,4 +81,4 @@
         </div>
     </div>
 
-14. Fix test and let it pass.
+17. Fix test and let it pass.
