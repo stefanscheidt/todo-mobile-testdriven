@@ -43,7 +43,9 @@
    Add beforeLoad and spy on $.ajax.
    Let test fail.
 
-12. Add deferred and spec and let test fail.
+12. call $.ajax and make test pass.
+
+13. Add deferred and spec and let test fail.
 
     it('updates list with loaded data', function () {
         deferred.resolve([
@@ -53,7 +55,7 @@
         expect(textOf(entries())).toBe(someEntryText);
     });
 
-13. Handle ajax return with addEntries and let test pass.
+14. Handle ajax return with addEntries and let test pass.
 
     function addEntries(entries) {
         for (var i = 0; i < entries.length; i++) {
@@ -64,16 +66,16 @@
 
 # Part III: Add settings page and and navigation #
 
-14. Add spec 'shows settings page after click on settings' and let it fail.
+15. Add spec 'shows settings page after click on settings' and let it fail.
 
-15. Add Header to todoPage.
+16. Add Header to todoPage.
 
     <div data-role="header">
         <h1>Todos</h1>
         <a href="#settingsPage" id="todoPage_settings" data-role="button" class="ui-btn-right">Settings</a>
     </div>
 
-16. Add settingsPage and let tests fail.
+17. Add settingsPage and let tests fail.
 
     <div id="settingsPage" data-role="page">
         <div data-role="header">
@@ -81,4 +83,4 @@
         </div>
     </div>
 
-17. Fix test and let it pass.
+18. Fix test and let it pass.
