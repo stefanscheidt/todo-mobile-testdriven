@@ -11,9 +11,8 @@
             event.preventDefault();
         });
 
-        $.ajax('/todo-mobile/store').then(function(entries) {
-            addEntries(entries);
-        });
+        $.ajax('/todo-mobile/store').then(addEntries);
+
     });
 
     function addEntry() {
@@ -34,12 +33,12 @@
         list.append(entryHtml(entry, index));
     }
 
-    function updateUi() {
-        list.parent().trigger('create');
-    }
-
     function entryHtml(entry, index) {
         return '<input type="checkbox" id="todo' + index + '"><label for="todo' + index + '" class="entry">' + entry + '</label>';
+    }
+
+    function updateUi() {
+        list.parent().trigger('create');
     }
 
 })();

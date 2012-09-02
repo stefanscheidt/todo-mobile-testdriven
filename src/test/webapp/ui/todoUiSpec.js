@@ -10,7 +10,8 @@ describeUi('todo', '/todo-mobile', function () {
     it('shows todo page when visiting the app', function () {
         expect('todoPage').toBeActivePage();
     });
-    it('add new entry to list', function () {
+
+    it('adds new entry to list', function () {
         input().val(someEntryText).submit();
         expect(entries().length).toBe(1);
         expect(textOf(entries())).toBe(someEntryText);
@@ -36,7 +37,13 @@ describeUi('todo', '/todo-mobile', function () {
     it('shows settings page after click on settings', function () {
         runs(function () {
             $('#todoPage_settings').click();
+            // simulate(document.getElementById('todoPage_settings'), 'click');
         });
+        /*
+        waitsFor(function () {
+            return $.mobile.activePage.is(':visible');
+        });
+        */
         runs(function () {
             expect('settingsPage').toBeActivePage();
         });
