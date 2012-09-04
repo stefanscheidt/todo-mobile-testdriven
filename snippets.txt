@@ -6,6 +6,7 @@
 2. implement 'shows todo page when visiting the app' and let it fail.
 
 3. Add todoPage to index.html and let test pass.
+   Explain testutils.js.
 
 4. Add spec and let it fail.
 
@@ -21,7 +22,7 @@
 
     <div data-role="content">
         <form id="todoPage_form" data-ajax="false">
-            <input type="text" id="textPage_input">
+            <input type="text" id="todoPage_input">
         </form>
         <fieldset id="todoPage_list" data-role="controlgroup">
         </fieldset>
@@ -35,17 +36,15 @@
 
 9. Include app/todo.js and let test pass.
 
-10. Refactor todo.js and let test pass.
-
 # Part II: Load Backend data on load #
 
-11. Add spec 'load data from backend on load'.
+10. Add spec 'load data from backend on load'.
    Add beforeLoad and spy on $.ajax.
    Let test fail.
 
-12. call $.ajax and make test pass.
+11. call $.ajax and make test pass.
 
-13. Add deferred and spec and let test fail.
+12. Add deferred and spec and let test fail.
 
     it('updates list with loaded data', function () {
         deferred.resolve([
@@ -55,14 +54,17 @@
         expect(textOf(entries())).toBe(someEntryText);
     });
 
-14. Handle ajax return with addEntries and let test pass.
+13. Handle ajax return with addEntries and let test pass.
 
     function addEntries(entries) {
         for (var i = 0; i < entries.length; i++) {
-            appendToList(entries[i].text);
+            var index = list.find('.entry').length;
+            list.append(entryHtml(entries[i].text, index));
         }
-        updateUi();
+        list.parent().trigger('create');
     }
+
+14. Refactor todo.js and let test pass.
 
 # Part III: Add settings page and and navigation #
 
