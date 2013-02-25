@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.optizconsulting</groupId>
+    <groupId>com.opitzconsulting</groupId>
     <artifactId>todo-mobile-testdriven</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.google.jstestdriver</groupId>
             <artifactId>jstestdriver</artifactId>
-            <version>1.3.4.b</version>
+            <version>1.3.5</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -121,6 +121,8 @@
                             <tests>all</tests>
                         </configuration>
                         <executions>
+                            <!-- no unit tests in this project -->
+                            <!--
                             <execution>
                                 <id>run-unit-tests</id>
                                 <phase>integration-test</phase>
@@ -131,6 +133,7 @@
                                     <config>jstd-unit.conf</config>
                                 </configuration>
                             </execution>
+                            -->
                             <execution>
                                 <id>run-integration-tests</id>
                                 <phase>integration-test</phase>

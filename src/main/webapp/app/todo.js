@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
     var form, input, list;
 
     $(function() {
@@ -41,4 +41,4 @@
         list.parent().trigger('create');
     }
 
-})();
+})(window.jQuery);

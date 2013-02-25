@@ -6,8 +6,8 @@
 
     <link rel="stylesheet" href="lib/jquery.mobile.css">
 
-    <!-- make page testable for jasmine ui -->
-    <script type="text/javascript">eval(sessionStorage.jasmineui);</script>
+    <!-- make page testable for uitest.js -->
+    <script type="text/javascript">parent.uitest && parent.uitest.instrument(window);</script>
 
     <!-- Libraries -->
     <script src="lib/jquery.js"></script>
