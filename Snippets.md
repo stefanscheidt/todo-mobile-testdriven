@@ -94,12 +94,12 @@
 
 1.  Add spec 'clears input after submit' and let it fail.
 
-    it('clears input after submit', function () {
-        uit.runs(function() {
-            input().val(someEntryText).submit();
-            expect(input().val()).toBe('');
+        it('clears input after submit', function () {
+            uit.runs(function() {
+                input().val(someEntryText).submit();
+                expect(input().val()).toBe('');
+            });
         });
-    });
 
 1.  Make test pass.
 
