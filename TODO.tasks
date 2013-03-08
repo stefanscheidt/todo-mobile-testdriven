@@ -1,0 +1,3 @@
+ ☐ Replace servlet backend with mockxhr.js
+ ☐ Replace jetty with node.js based webserver (e.g. node-static)
+ ☐ Relapce Maven with grunt.js
