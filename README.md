@@ -1,1 +1,1 @@
-Sample Application to demonstrate test-driven JavaScript UI Development, using [Jasmine-UI](https://github.com/tigbro/jasmine-ui).
+Sample Application to demonstrate test-driven JavaScript UI Development, using [uitest.js](https://github.com/tigbro/uitest.js).
