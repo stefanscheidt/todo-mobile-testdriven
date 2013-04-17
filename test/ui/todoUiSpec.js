@@ -47,6 +47,23 @@ describe('todo', function() {
         });
     });
 
+    it('refreshes list when refresh is clicked', function () {
+        uit.runs(function($) {
+            var someNewText = 'someNewText',
+                newDeferred = $.Deferred();
+
+            deferred.resolve([]);
+            $.ajax.andReturn(newDeferred);
+            $("#todoPage_refresh").click();
+            expect(entries().length).toBe(0);
+            newDeferred.resolve([{
+                text: someNewText
+            }]);
+            expect(entries().length).toBe(1);
+            expect(textOf(entries())).toBe(someNewText);
+        });
+    });
+
     it('shows settings page after click on settings', function () {
         uit.runs(function ($) {
             $('#todoPage_settings').click();

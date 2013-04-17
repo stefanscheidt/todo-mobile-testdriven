@@ -1,6 +1,6 @@
 (function() {
     var storeAsString = JSON.stringify([
-        {text: 'Entry from Backend'}
+        {text: 'Have fun!'}
     ]);
 
     var server = new MockHttpServer();

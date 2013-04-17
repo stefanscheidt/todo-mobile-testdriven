@@ -35,9 +35,7 @@
 1.  Add content to todoPage. (demo2)
 
         <div data-role="content">
-            <form id="todoPage_form" data-ajax="false">
-                <input type="text" id="todoPage_input">
-            </form>
+            <input type="text" id="todoPage_input">
             <fieldset id="todoPage_list" data-role="controlgroup">
             </fieldset>
         </div>
@@ -64,7 +62,6 @@
                     if (event.keyCode!==13) {
                         return;
                     }
-                    event.preventDefault();
                     addEntry();
                 });
 
@@ -191,7 +188,7 @@
 
         <div data-role="header">
             <h1>Todos</h1>
-            <a href="#settingsPage" id="todoPage_settings" data-role="button" class="ui-btn-right">Settings</a>
+            <a href="#settingsPage" id="todoPage_settings">Settings</a>
         </div>
 
 1.  Add settingsPage and let tests fail. (demo6)
