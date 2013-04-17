@@ -1,4 +1,4 @@
-describe('todo', function () {
+describe('todo', function() {
     var uit = uitest.current,
         someEntryText = "Entry",
         deferred;
