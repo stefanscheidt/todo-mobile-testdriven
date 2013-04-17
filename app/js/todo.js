@@ -6,7 +6,10 @@
         input = $('#todoPage_input');
         list = $('#todoPage_list');
 
-        form.submit(function (event) {
+        input.keypress(function (event) {
+            if (event.keyCode!==13) {
+                return;
+            }
             addEntry();
             event.preventDefault();
         });

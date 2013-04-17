@@ -25,7 +25,7 @@
         it('adds new entry to list', function () {
             uit.runs(function($) {
                 var someEntryText = "Entry";
-                $('#todoPage_input').val(someEntryText).submit();
+                $('#todoPage_input').val(someEntryText).trigger($.Event("keypress", {keyCode: 13}));
                 var entries = $('#todoPage_list .entry');
                 expect(entries.length).toBe(1);
                 expect(entries.text()).toBe(someEntryText);
@@ -60,7 +60,10 @@
                 input = $('#todoPage_input');
                 list = $('#todoPage_list');
 
-                form.submit(function (event) {
+                input.keypress(function (event) {
+                    if (event.keyCode!==13) {
+                        return;
+                    }
                     event.preventDefault();
                     addEntry();
                 });
@@ -81,6 +84,12 @@
 
 1.  Refactor test.
 
+        function pressEnter(input) {
+            uit.inject(function($) {
+                input.trigger($.Event("keypress", {keyCode: 13}));
+            });
+        }
+
         function input() {
             return uit.inject(function($) { return $('#todoPage_input'); });
         }
@@ -93,11 +102,11 @@
             return uit.inject(function($) { return $.trim(element.text()); });
         }
 
-1.  Add spec 'clears input after submit' and let it fail.
+1.  Add spec 'clears input after enter' and let it fail.
 
-        it('clears input after submit', function () {
+        it('clears input after enter', function () {
             uit.runs(function() {
-                input().val(someEntryText).submit();
+                pressEnter(input().val(someEntryText));
                 expect(input().val()).toBe('');
             });
         });

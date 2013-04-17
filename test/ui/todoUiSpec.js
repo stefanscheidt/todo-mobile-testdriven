@@ -18,15 +18,15 @@ describe('todo', function() {
 
     it('adds new entry to list', function () {
         uit.runs(function() {
-            input().val(someEntryText).submit();
+            pressEnter(input().val(someEntryText));
             expect(entries().length).toBe(1);
             expect(textOf(entries())).toBe(someEntryText);
         });
     });
 
-    it('clears input field after submit', function () {
+    it('clears input field after enter', function () {
         uit.runs(function() {
-            input().val(someEntryText).submit();
+            pressEnter(input().val(someEntryText));
             expect(input().val()).toBe('');
         });
     });
@@ -55,6 +55,12 @@ describe('todo', function() {
             expect('settingsPage').toBeActivePage();
         });
     });
+
+    function pressEnter(input) {
+        uit.inject(function($) {
+            input.trigger($.Event("keypress", {keyCode: 13}));
+        });
+    }
 
     function input() {
         return uit.inject(function($) { return $('#todoPage_input'); });
