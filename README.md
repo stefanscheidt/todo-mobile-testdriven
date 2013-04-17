@@ -1,3 +1,4 @@
+[![Build Status](https://api.travis-ci.org/stefanscheidt/todo-mobile-testdriven.png)](https://travis-ci.org/stefanscheidt/todo-mobile-testdriven)
 # todo-mobile-testdriven
 
 ## Description
