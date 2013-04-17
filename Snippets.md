@@ -180,7 +180,7 @@
             list.parent().trigger('create');
         }
 
-# Part III: Add settings page and and navigation #
+# Part III: Add settings page and navigation #
 
 1.  Add spec 'shows settings page after click on settings' and let it fail.
 
