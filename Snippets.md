@@ -6,6 +6,7 @@
 1.  implement 'shows todo page when visiting the app' and let it fail.
 
         describe('todo', function () {
+            var uit = uitest.current;
             uit.url('../../app/index.html');
 
             it('shows todo page when visiting the app', function () {
