@@ -1,8 +1,7 @@
 (function ($) {
-    var form, input, list, refresh;
+    var input, list, refresh;
 
     $(function() {
-        form = $('#todoPage_form');
         input = $('#todoPage_input');
         list = $('#todoPage_list');
         refresh = $('#todoPage_refresh');

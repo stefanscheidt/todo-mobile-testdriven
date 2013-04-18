@@ -51,14 +51,13 @@
 1.  Include app/todo.js and let test pass.
 
         (function ($) {
-            var form, input, list;
+            var input, list;
 
             $(function() {
-                form = $('#todoPage_form');
                 input = $('#todoPage_input');
                 list = $('#todoPage_list');
 
-                input.keypress(function (event) {
+                input.on("keypress", function (event) {
                     if (event.keyCode!==13) {
                         return;
                     }
