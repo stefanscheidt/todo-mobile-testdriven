@@ -39,6 +39,7 @@ module.exports = function(grunt) {
           expect: true,
           jasmine: true,
           uitest: true,
+          uit: true,
           window: true,
           document: true,
           MockHttpServer: true,

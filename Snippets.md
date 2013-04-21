@@ -1,14 +1,19 @@
 
 # Part I: Show todo page and add new entries #
 
-1.  Setup:
+1.  Explain Setup:
+
+    *   Grunt
+    *   testutils.js
+
+1.  Start development environment:
 
         export PHANTOMJS_BIN=./node_modules/.bin/phantomjs
         ./node_modules/.bin/grunt dev
 
-1.  create src/test/webapp/ui/todoUiSpec.js
+1.  create test/ui/todoUiSpec.js.
 
-1.  implement 'shows todo page when visiting the app' and let it fail.
+1.  implement "shows todo page when visiting the app" and let it fail.
 
         describe('todo', function () {
             var uit = uitest.current;
@@ -22,8 +27,7 @@
 
         });
 
-1.  *   Add todoPage to index.html and let test pass.
-    *   Explain testutils.js.
+1.  Add todoPage to index.html and let test pass.
 
 1.  Add spec and let it fail. (demo1)
 
@@ -31,7 +35,7 @@
             uit.runs(function($) {
                 var someEntryText = "Entry";
                 $('#todoPage_input').val(someEntryText).trigger($.Event("keypress", {keyCode: 13}));
-                var entries = $('#todoPage_list .entry');
+                var entries = $('#todoPage_list').find('.entry');
                 expect(entries.length).toBe(1);
                 expect(entries.text()).toBe(someEntryText);
             });
@@ -53,22 +57,22 @@
 
 1.  Make test fail due to static content.
 
-1.  Include app/todo.js and let test pass.
+1.  Include app/todo.js and let test pass. (demo3)
 
         (function ($) {
+            'use strict';
+
             var input, list;
 
             $(function() {
                 input = $('#todoPage_input');
                 list = $('#todoPage_list');
-
                 input.on("keypress", function (event) {
-                    if (event.keyCode!==13) {
+                    if (event.keyCode !== 13) {
                         return;
                     }
                     addEntry();
                 });
-
             });
 
             function addEntry() {
@@ -85,25 +89,43 @@
 
 1.  Refactor test.
 
-        function pressEnter(input) {
-            uit.inject(function($) {
-                input.trigger($.Event("keypress", {keyCode: 13}));
+        function input() {
+            return uit.inject(function ($) {
+                return $('#todoPage_input');
             });
         }
 
-        function input() {
-            return uit.inject(function($) { return $('#todoPage_input'); });
+        function entries() {
+            return uit.inject(function ($) {
+                return $('#todoPage_list').find('.entry');
+            });
         }
 
-        function entries() {
-            return uit.inject(function($) { return $('#todoPage_list .entry'); });
+        function pressEnterOn(input) {
+            uit.inject(function ($) {
+                input.trigger($.Event('keypress', {keyCode: 13}));
+            });
         }
 
         function textOf(element) {
-            return uit.inject(function($) { return $.trim(element.text()); });
+            return uit.inject(function ($) {
+                return $.trim(element.text());
+            });
         }
 
-1.  Add spec 'clears input after enter' and let it fail.
+        it('adds new entry to list', function () {
+            uit.runs(function ($) {
+                var someEntryText = "Entry";
+                pressEnterOn(input().val(someEntryText + " 1"));
+                expect(entries().length).toBe(1);
+                expect(textOf(entries().eq(0))).toBe(someEntryText + " 1");
+                pressEnterOn(input().val(someEntryText + " 2"));
+                expect(entries().length).toBe(2);
+                expect(textOf(entries().eq(1))).toBe(someEntryText + " 2");
+            });
+        });
+
+1.  Add spec "clears input after enter" and let it fail.
 
         it('clears input after enter', function () {
             uit.runs(function() {
