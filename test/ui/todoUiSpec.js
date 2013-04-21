@@ -49,8 +49,6 @@ describe('todo', function() {
             pressEnterOn(input().val(someEntryText));
             expect(input().val()).toBe('');
         });
-
     });
-
 
 });

@@ -138,7 +138,7 @@
 
 # Part II: Load Backend data on load #
 
-1.  Add spec 'load data from backend on load'.
+1.  Add spec "load data from backend on load".
 
         it('loads entries from backend on load', function () {
             uit.runs(function($) {
@@ -150,7 +150,7 @@
 
 1.  call `$.ajax` and make test pass.
 
-1.  Add deferred and spec and let test fail. (demo3)
+1.  Add deferred and spec and let test fail. (demo4)
 
         uit.append(function ($) {
             deferred = $.Deferred();
@@ -167,7 +167,7 @@
             });
         });
 
-1.  Handle ajax return with `addEntries` and let test pass. (demo4)
+1.  Handle ajax return with `addEntries` and let test pass. (demo5)
 
         $(function() {
             // ...
@@ -208,16 +208,16 @@
 
 # Part III: Add settings page and navigation #
 
-1.  Add spec 'shows settings page after click on settings' and let it fail.
+1.  Add spec "shows settings page after click on settings" and let it fail.
 
-1.  Add Header to todoPage. (demo5)
+1.  Add Header to todoPage. (demo6)
 
         <div data-role="header">
             <h1>Todos</h1>
             <a href="#settingsPage" id="todoPage_settings">Settings</a>
         </div>
 
-1.  Add settingsPage and let tests fail. (demo6)
+1.  Add settingsPage and let tests fail. (demo7)
 
         <div id="settingsPage" data-role="page">
             <div data-role="header">
