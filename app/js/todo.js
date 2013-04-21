@@ -1,10 +1,11 @@
 (function ($) {
     'use strict';
-    var input, list;
+    var input, list, refresh;
 
     $(function() {
         input = $('#todoPage_input');
         list = $('#todoPage_list');
+        refresh = $('#todoPage_refresh');
 
         input.on("keypress", function (event) {
             if (event.keyCode !== 13) {
@@ -14,8 +15,14 @@
             input.val('');
         });
 
-        $.ajax('/todo-mobile/store').then(addEntries);
+        refresh.on("click", refreshEntries);
+
+        refreshEntries();
     });
+
+    function refreshEntries() {
+        $.ajax('/todo-mobile/store').then(addEntries);
+    }
 
     function addEntry() {
         var index = list.find('.entry').length;

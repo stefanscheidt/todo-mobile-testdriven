@@ -49,6 +49,32 @@ describe('todo', function () {
         });
     });
 
+    it('refreshes list after click on refresh', function () {
+        uit.runs(function ($) {
+            var refreshed = $.Deferred();
+
+            deferred.resolve([]);
+            $.ajax.andReturn(refreshed);
+
+            $('#todoPage_refresh').click();
+            expect(entries().length).toBe(0);
+            refreshed.resolve([
+                {text: someEntryText}
+            ]);
+            expect(entries().length).toBe(1);
+            expect(textOf(entries())).toBe(someEntryText);
+        });
+    });
+
+    it('shows settings page after click on settings button', function () {
+        uit.runs(function ($) {
+            $('#todoPage_settings').click();
+        });
+        uit.runs(function () {
+            expect('settingsPage').toBeActivePage();
+        });
+    });
+
     function input() {
         return uit.inject(function ($) {
             return $('#todoPage_input');
