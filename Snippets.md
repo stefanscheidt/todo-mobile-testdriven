@@ -1,6 +1,11 @@
 
 # Part I: Show todo page and add new entries #
 
+1.  Setup:
+
+        export PHANTOMJS_BIN=./node_modules/.bin/phantomjs
+        ./node_modules/.bin/grunt dev
+
 1.  create src/test/webapp/ui/todoUiSpec.js
 
 1.  implement 'shows todo page when visiting the app' and let it fail.
