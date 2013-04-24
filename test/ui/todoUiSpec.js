@@ -2,7 +2,7 @@ describe('todo', function () {
     uit.url('../../app/index.html');
 
     var deferred;
-    var someEntryText = "Entry";
+    var someEntryText = 'Entry';
 
     uit.append(function ($) {
         deferred = $.Deferred();
@@ -17,12 +17,12 @@ describe('todo', function () {
 
     it('adds new entry to list', function () {
         uit.runs(function () {
-            pressEnterOn(input().val(someEntryText + " 1"));
+            pressEnterOn(input().val(someEntryText + ' 1'));
             expect(entries().length).toBe(1);
-            expect(textOf(entries().eq(0))).toBe(someEntryText + " 1");
-            pressEnterOn(input().val(someEntryText + " 2"));
+            expect(textOf(entries().eq(0))).toBe(someEntryText + ' 1');
+            pressEnterOn(input().val(someEntryText + ' 2'));
             expect(entries().length).toBe(2);
-            expect(textOf(entries().eq(1))).toBe(someEntryText + " 2");
+            expect(textOf(entries().eq(1))).toBe(someEntryText + ' 2');
         });
     });
 

@@ -1,6 +1,6 @@
 var uit = uitest.current;
 uit.feature("xhrSensor", "timeoutSensor", "intervalSensor", "jqmAnimationSensor", "mobileViewport");
-uit.feature("cacheBuster");
+// uit.feature("cacheBuster");
 
 // add custom matcher toBeActivePage
 beforeEach(function () {

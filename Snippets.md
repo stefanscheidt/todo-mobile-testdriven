@@ -33,8 +33,8 @@
 
         it('adds new entry to list', function () {
             uit.runs(function($) {
-                var someEntryText = "Entry";
-                $('#todoPage_input').val(someEntryText).trigger($.Event("keypress", {keyCode: 13}));
+                var someEntryText = 'Entry';
+                $('#todoPage_input').val(someEntryText).trigger($.Event('keypress', {keyCode: 13}));
                 var entries = $('#todoPage_list').find('.entry');
                 expect(entries.length).toBe(1);
                 expect(entries.text()).toBe(someEntryText);
@@ -67,7 +67,7 @@
             $(function() {
                 input = $('#todoPage_input');
                 list = $('#todoPage_list');
-                input.on("keypress", function (event) {
+                input.on('keypress', function (event) {
                     if (event.keyCode !== 13) {
                         return;
                     }
@@ -138,7 +138,7 @@
 
 # Part II: Load Backend data on load #
 
-1.  Add spec "load data from backend on load".
+1.  Add spec "loads data from backend on load".
 
         it('loads entries from backend on load', function () {
             uit.runs(function($) {
@@ -187,7 +187,7 @@
         function addEntry() {
             var index = list.find('.entry').length;
             appendToList(input.val(), index);
-            list.parent().trigger('create');
+            updateUi();
         }
 
         function addEntries(entries) {
