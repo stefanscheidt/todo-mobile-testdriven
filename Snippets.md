@@ -16,7 +16,6 @@
 1.  implement "shows todo page when visiting the app" and let it fail.
 
         describe('todo', function () {
-            var uit = uitest.current;
             uit.url('../../app/index.html');
 
             it('shows todo page when visiting the app', function () {
@@ -44,7 +43,7 @@
 1.  Add content to todoPage. (demo2)
 
         <div data-role="content">
-            <input type="text" id="todoPage_input">
+            <input id="todoPage_input" type="text">
             <fieldset id="todoPage_list" data-role="controlgroup">
             </fieldset>
         </div>
@@ -82,7 +81,7 @@
             }
 
             function entryHtml(entry, index) {
-                return '<input type="checkbox" id="todo' + index + '"><label for="todo' + index + '" class="entry">' + entry + '</label>';
+                return '<input id="todo' + index + '" type="checkbox"><label for="todo' + index + '" class="entry">' + entry + '</label>';
             }
 
         })(window.jQuery);
@@ -214,7 +213,7 @@
 
         <div data-role="header">
             <h1>Todos</h1>
-            <a href="#settingsPage" id="todoPage_settings">Settings</a>
+            <a id="todoPage_settings" href="#settingsPage">Settings</a>
         </div>
 
 1.  Add settingsPage and let tests fail. (demo7)
