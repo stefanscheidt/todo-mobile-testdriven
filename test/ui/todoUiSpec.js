@@ -17,10 +17,10 @@ describe('todo', function () {
 
     it('adds new entry to list', function () {
         uit.runs(function () {
-            pressEnterOn(input().val(someEntryText + ' 1'));
+            input().val(someEntryText + ' 1').trigger(enter());
             expect(entries().length).toBe(1);
             expect(textOf(entries().eq(0))).toBe(someEntryText + ' 1');
-            pressEnterOn(input().val(someEntryText + ' 2'));
+            input().val(someEntryText + ' 2').trigger(enter());
             expect(entries().length).toBe(2);
             expect(textOf(entries().eq(1))).toBe(someEntryText + ' 2');
         });
@@ -28,12 +28,12 @@ describe('todo', function () {
 
     it('clears input after enter pressed', function () {
         uit.runs(function () {
-            pressEnterOn(input().val(someEntryText));
+            input().val(someEntryText).trigger(enter());
             expect(input().val()).toBe('');
         });
     });
 
-    it('loads entries from backend on load', function () {
+    it('loads data from backend on load', function () {
         uit.runs(function ($) {
             expect($.ajax).toHaveBeenCalledWith('/todo-mobile/store');
         });
@@ -87,9 +87,9 @@ describe('todo', function () {
         });
     }
 
-    function pressEnterOn(input) {
-        uit.inject(function ($) {
-            input.trigger($.Event('keypress', {keyCode: 13}));
+    function enter() {
+        return uit.inject(function ($) {
+            return $.Event('keypress', {keyCode: 13});
         });
     }
 

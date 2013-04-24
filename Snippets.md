@@ -28,7 +28,7 @@
 
 1.  Add todoPage to index.html and let test pass.
 
-1.  Add spec and let it fail. (demo1)
+1.  Add spec and let it fail. (**demo1**)
 
         it('adds new entry to list', function () {
             uit.runs(function($) {
@@ -40,7 +40,7 @@
             });
         });
 
-1.  Add content to todoPage. (demo2)
+1.  Add content to todoPage. (**demo2**)
 
         <div data-role="content">
             <input id="todoPage_input" type="text">
@@ -56,7 +56,7 @@
 
 1.  Make test fail due to static content.
 
-1.  Include app/todo.js and let test pass. (demo3)
+1.  Include app/todo.js and let test pass. (**demo3**)
 
         (function ($) {
             'use strict';
@@ -100,9 +100,9 @@
             });
         }
 
-        function pressEnterOn(input) {
-            uit.inject(function ($) {
-                input.trigger($.Event('keypress', {keyCode: 13}));
+        function enter() {
+            return uit.inject(function ($) {
+                return $.Event('keypress', {keyCode: 13});
             });
         }
 
@@ -115,10 +115,10 @@
         it('adds new entry to list', function () {
             uit.runs(function ($) {
                 var someEntryText = "Entry";
-                pressEnterOn(input().val(someEntryText + " 1"));
+                input().val(someEntryText + " 1").trigger(enter());
                 expect(entries().length).toBe(1);
                 expect(textOf(entries().eq(0))).toBe(someEntryText + " 1");
-                pressEnterOn(input().val(someEntryText + " 2"));
+                input().val(someEntryText + " 2").trigger(enter());
                 expect(entries().length).toBe(2);
                 expect(textOf(entries().eq(1))).toBe(someEntryText + " 2");
             });
@@ -128,7 +128,7 @@
 
         it('clears input after enter', function () {
             uit.runs(function() {
-                pressEnter(input().val(someEntryText));
+                input().val(someEntryText).trigger(enter());
                 expect(input().val()).toBe('');
             });
         });
@@ -149,7 +149,7 @@
 
 1.  call `$.ajax` and make test pass.
 
-1.  Add deferred and spec and let test fail. (demo4)
+1.  Add deferred and spec and let test fail. (**demo4**)
 
         uit.append(function ($) {
             deferred = $.Deferred();
@@ -166,7 +166,7 @@
             });
         });
 
-1.  Handle ajax return with `addEntries` and let test pass. (demo5)
+1.  Handle ajax return with `addEntries` and let test pass. (**demo5**)
 
         $(function() {
             // ...
@@ -209,14 +209,14 @@
 
 1.  Add spec "shows settings page after click on settings" and let it fail.
 
-1.  Add Header to todoPage. (demo6)
+1.  Add Header to todoPage.
 
         <div data-role="header">
             <h1>Todos</h1>
             <a id="todoPage_settings" href="#settingsPage">Settings</a>
         </div>
 
-1.  Add settingsPage and let tests fail. (demo7)
+1.  Add settingsPage and let tests fail. (**demo6**)
 
         <div id="settingsPage" data-role="page">
             <div data-role="header">

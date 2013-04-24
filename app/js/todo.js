@@ -15,7 +15,7 @@
             input.val('');
         });
 
-        refresh.on("click", refreshEntries);
+        refresh.on('click', refreshEntries);
 
         refreshEntries();
     });
@@ -31,9 +31,9 @@
     }
 
     function addEntries(entries) {
+        var index = list.find('.entry').length;
         for (var i = 0; i < entries.length; i++) {
-            var index = list.find('.entry').length;
-            appendToList(entries[i].text, index);
+            appendToList(entries[i].text, index + i);
         }
         updateUi();
     }
